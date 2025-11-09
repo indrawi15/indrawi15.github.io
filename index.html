@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio AI & Data Science - Indra Wijaya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Indra Wijaya</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Portfolio AI & Data Science - Indra Wijaya</h1>
+                    <p class="hero-subtitle">
+                        Sebagai lulusan baru dari Universitas Bhayangkara Jakarta Raya dengan spesialisasi Data Science, 
+                        Machine Learning, dan Business Intelligence, saya membangun solusi cerdas yang mengubah data 
+                        menjadi wawasan berharga untuk bisnis modern. Jelajahi proyek-proyek inovatif saya di bidang 
+                        kecerdasan buatan dan analitik data.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
+                        <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                        <button class="btn btn-cv" id="downloadCV">Unduh CV</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="asset/hero_image.jpg" alt="Hero Image" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">Tentang Saya</h2>
+                    <p>
+                        Indra Wijaya adalah lulusan Informatika – Universitas Bhayangkara Jakarta Raya (IPK 3.61) 
+                        yang berlokasi di Bogor, Indonesia. Beliau memiliki spesialisasi dalam Data Science, 
+                        Machine Learning, dan Business Intelligence. Indra memiliki pengalaman sebagai Data Analyst 
+                        Intern di PT Surveyor Indonesia, dengan keahlian dalam analisis data, predictive modeling, 
+                        dan pengembangan dashboard interaktif. Indra sangat analitis, adaptif, dan memiliki passion 
+                        terhadap AI serta inovasi berbasis data.
+                    </p>
+                    <div class="about-details">
+                        <h3>Keahlian:</h3>
+                        <p>Python, SQL, Pandas, NumPy, Scikit-learn, TensorFlow, Keras, Looker Studio, dll.</p>
+                        <h3>Sertifikasi:</h3>
+                        <p>
+                            Associate Data Scientist (LSP Informatika BNSP), 
+                            Certified Independent Study GreatEdu Data Science Bootcamp.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="asset/tentang saya_image.jpg" alt="Tentang Saya" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Keahlian Teknis</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Machine Learning</h3>
+                    <ul>
+                        <li>Supervised Learning</li>
+                        <li>Unsupervised Learning</li>
+                        <li>Reinforcement Learning</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Deep Learning</h3>
+                    <ul>
+                        <li>Neural Networks</li>
+                        <li>Computer Vision</li>
+                        <li>Natural Language Processing</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Python & Frameworks</li>
+                        <li>Cloud Services (AWS, GCP, OpenRouter)</li>
+                        <li>Data Engineering & BI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyek Unggulan</h2>
+            <p class="section-subtitle">
+                Berikut adalah beberapa proyek machine learning dan AI yang telah saya kembangkan:
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="asset/LSTM.jpg" alt="Rainfall Prediction Using LSTM" class="project-img">
+                    </div>
+                    <h3>Rainfall Prediction Using LSTM and Gemma 2</h3>
+                    <p>
+                        Model LSTM untuk prediksi curah hujan harian di Kabupaten Bogor menggunakan data BMKG, 
+                        dengan Gemma 2 LLM untuk generate narrative summaries (Final Thesis 2025).
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="asset/churn.jpg" alt="Churn Prediction Model" class="project-img">
+                    </div>
+                    <h3>Churn Prediction Model</h3>
+                    <p>
+                        Implementasi multiple algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM) 
+                        dengan akurasi 86.7% menggunakan XGBoost untuk memprediksi churn pelanggan.
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="asset/medical.jpg" alt="Medical Cost Regression App" class="project-img">
+                    </div>
+                    <h3>Medical Cost Regression App</h3>
+                    <p>
+                        Prediksi biaya medis menggunakan Linear, Lasso, dan Ridge Regression (R² = 0.78), 
+                        deployed dengan Flask API.
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="asset/rfm.jpg" alt="Customer Segmentation RFM Clustering" class="project-img">
+                    </div>
+                    <h3>Customer Segmentation (RFM Clustering)</h3>
+                    <p>
+                        K-Means Clustering untuk segmentasi customer berdasarkan behavioral data.
+                    </p>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="asset/house price.jpg" alt="House Price Prediction" class="project-img">
+                    </div>
+                    <h3>House Price Prediction</h3>
+                    <p>
+                        Model prediksi harga rumah dengan R² = 0.83 (train) dan R² = 0.81 (test) 
+                        menggunakan 1460 training dan 1459 test datasets.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-details">
+                <h3>Detail Proyek Teknis</h3>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4>Data Analysis at PT Surveyor Indonesia</h4>
+                        <p><strong>Tech Stack:</strong> Python, Pandas, Looker Studio</p>
+                        <p>Analyzed coal shipment data, developed interactive dashboards, cleaned large datasets for logistics optimization.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>Medical Cost Prediction (Deployed)</h4>
+                        <p><strong>Tech Stack:</strong> Flask, Scikit-learn, Python</p>
+                        <p>Linear/Lasso/Ridge Regression with R² = 0.78, deployed as Flask API.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>LSTM Rainfall Prediction</h4>
+                        <p><strong>Tech Stack:</strong> TensorFlow, Keras, Gemma 2 LLM</p>
+                        <p>Daily rainfall prediction for Bogor Regency using BMKG weather data with narrative summaries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="container">
+            <h2 class="section-title">Metrik & Pencapaian</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">20+</div>
+                    <div class="metric-label">Proyek Selesai</div>
+                    <div class="metric-desc">Di berbagai industri dan domain.</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">0.83</div>
+                    <div class="metric-label">Skor R²</div>
+                    <div class="metric-desc">Dicapai dalam prediksi harga rumah.</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">90.5%</div>
+                    <div class="metric-label">Akurasi Model Terbaik</div>
+                    <div class="metric-desc">Dicapai dalam proyek prediksi Churn.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Layanan & Keahlian Khusus</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">1</div>
+                    <h3>Data Analysis & Insights</h3>
+                    <p>
+                        Analisis data untuk mengidentifikasi pola dan tren bisnis, pengembangan dashboard 
+                        interaktif untuk monitoring real-time.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">2</div>
+                    <h3>Machine Learning Solutions</h3>
+                    <p>
+                        Pengembangan model prediktif untuk churn prediction, forecasting, dan classification 
+                        dengan berbagai algoritma ML.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">3</div>
+                    <h3>Data Visualization & Reporting</h3>
+                    <p>
+                        Pembuatan visualisasi data yang informatif menggunakan Looker Studio, Matplotlib, 
+                        dan tools lainnya untuk business intelligence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Koneksi & Kolaborasi</h2>
+            <p class="section-subtitle">
+                Mari terhubung dan berkolaborasi untuk menciptakan solusi AI yang transformatif. 
+                Saya terbuka untuk diskusi project baru, partnership, dan kesempatan speaking.
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-image">
+                    <img src="asset/mari berkoneksi_image.jpg" alt="Mari Berkoneksi" class="contact-img">
+                </div>
+                <div class="contact-info">
+                    <h3>Hubungi Saya</h3>
+                    <div class="contact-item">
+                        <strong>Email:</strong> 
+                        <a href="mailto:indrawijaya571@gmail.com">indrawijaya571@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> 
+                        <a href="tel:+6285780329416">+62 85780329416</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Location:</strong> Bogor, Indonesia
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Media Sosial & Sertifikasi</h4>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/indrawjya/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                            <a href="https://github.com/indrawi15" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Kaggle</a>
+                        </div>
+                        <p class="social-desc">
+                            Aktif berbagi insights tentang AI, ML trends, dan data science best practices 
+                            di berbagai platform.
+                        </p>
+                        <p class="cert-desc">
+                            <strong>Sertifikasi:</strong> Associate Data Scientist (LSP Informatika BNSP), 
+                            Junior Data Scientist dan Certified Independent Study GreatEdu Data Science Bootcamp.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Mari Dimulai Proyek Berikutnya</h2>
+            <p>
+                Sebagai lulusan baru yang bersemangat, saya siap membawa ide-ide segar dan dedikasi untuk 
+                proyek AI atau data science Anda. Mari kita wujudkan visi Anda menjadi solusi inovatif dan berdampak.
+            </p>
+            <a href="mailto:indrawijaya571@gmail.com" class="btn btn-primary">Mulai Email Saya</a>
+            <a href="#projects" class="btn btn-secondary">Lihat Portofolio Lengkap</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Indra Wijaya</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
