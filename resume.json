@@ -1,0 +1,119 @@
+{
+  "name": "Indra Wijaya",
+  "contact": {
+    "email": "indrawijaya571@gmail.com",
+    "phone": "+62 85780329416",
+    "location": "Bogor, Indonesia"
+  },
+  "profile": "Graduate of Informatics – Bhayangkara University Jakarta Raya (GPA 3.63) specializing in Data Science, Machine Learning, and Business Intelligence. Experienced in data analysis, predictive modeling, and interactive dashboard development.",
+  "skillsOverview": {
+    "programming": [
+      "Python",
+      "SQL"
+    ],
+    "dataTools": [
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "TensorFlow",
+      "Keras"
+    ],
+    "visualization": [
+      "Looker Studio",
+      "Matplotlib",
+      "Seaborn"
+    ],
+    "deployment": [
+      "Flask",
+      "Google Colab",
+      "Git"
+    ],
+    "other": [
+      "Feature Engineering",
+      "Statistical Analysis",
+      "Data Cleaning"
+    ]
+  },
+  "experience": [
+    {
+      "role": "Data Analysis at PT Surveyor Indonesia",
+      "techStack": "",
+      "bullets": [
+        "Python, Pandas, Looker Studio",
+        "Analyzed coal shipment data, developed interactive dashboards, cleaned large datasets for logistics optimization."
+      ]
+    },
+    {
+      "role": "Medical Cost Prediction (Deployed)",
+      "techStack": "",
+      "bullets": [
+        "Flask, Scikit-learn, Python",
+        "Linear/Lasso/Ridge Regression with R² = 0.78, deployed as Flask API."
+      ]
+    },
+    {
+      "role": "LSTM Rainfall Prediction",
+      "techStack": "",
+      "bullets": [
+        "TensorFlow, Keras, Gemma 2 LLM",
+        "Daily rainfall prediction for Bogor Regency using BMKG weather data with narrative summaries."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Rainfall Prediction Using LSTM and Gemma 2",
+      "details": [
+        "Model LSTM untuk prediksi curah hujan harian di Kabupaten Bogor menggunakan data BMKG, \n                        dengan Gemma 2 LLM untuk generate narrative summaries (Final Thesis 2025)."
+      ],
+      "image": "asset/LSTM.jpg"
+    },
+    {
+      "title": "Churn Prediction Model",
+      "details": [
+        "Implementasi multiple algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM) \n                        dengan akurasi 86.7% menggunakan XGBoost untuk memprediksi churn pelanggan."
+      ],
+      "image": "asset/churn.jpg"
+    },
+    {
+      "title": "Medical Cost Regression App",
+      "details": [
+        "Prediksi biaya medis menggunakan Linear, Lasso, dan Ridge Regression (R² = 0.78), \n                        deployed dengan Flask API."
+      ],
+      "image": "asset/medical.jpg"
+    },
+    {
+      "title": "Customer Segmentation (RFM Clustering)",
+      "details": [
+        "K-Means Clustering untuk segmentasi customer berdasarkan behavioral data."
+      ],
+      "image": "asset/rfm.jpg"
+    },
+    {
+      "title": "House Price Prediction",
+      "details": [
+        "Model prediksi harga rumah dengan R² = 0.83 (train) dan R² = 0.81 (test) \n                        menggunakan 1460 training dan 1459 test datasets."
+      ],
+      "image": "asset/house price.jpg"
+    },
+    {
+      "title": "Gold Price Prediction",
+      "details": [
+        "Model peramalan deret waktu untuk memprediksi harga \n                        emas menggunakan data historis , memanfaatkan model LSTM dengan akurasi 90%."
+      ],
+      "image": "asset/emas.jpg"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Informatics",
+      "school": "Bhayangkara University Jakarta Raya",
+      "year": 2025,
+      "gpa": 3.61
+    }
+  ],
+  "certifications": [
+    "Associate Data Scientist – LSP Informatika (BNSP)",
+    "Certified Independent Study – GreatEdu Data Science Bootcamp"
+  ]
+}
