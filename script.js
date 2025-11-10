@@ -189,42 +189,54 @@ if (downloadCV) {
       cvElement.style.color = '#111';
 
       cvElement.innerHTML = `
-  <h1 style="margin:0;">${data.name}</h1>
-  <p><strong>Email:</strong> ${data.contact.email} | <strong>Phone:</strong> ${data.contact.phone}</p>
-  <p><strong>Location:</strong> ${data.contact.location}</p>
-  <hr style="margin:10px 0;">
-  
-  <h2>Profile</h2>
-  <p>${data.profile}</p>
+  <!-- Header -->
+  <div style="background:#1e293b;color:white;padding:24px;border-radius:8px 8px 0 0">
+    <h1 style="margin:0;font-size:28px">${data.name}</h1>
+    <p style="margin:4px 0 0">${data.contact.location} • ${data.contact.phone} • ${data.contact.email}</p>
+  </div>
 
-  <h2>Skills Overview</h2>
-  <ul>
-    ${Object.entries(data.skillsOverview).map(([key, list]) => 
-      `<li><strong>${key}:</strong> ${list.join(', ')}</li>`
-    ).join('')}
-  </ul>
+  <!-- Body -->
+  <div style="display:flex;gap:20px;padding:24px;border:1px solid #ddd;border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.5">
+    
+    <!-- Left column -->
+    <div style="flex:1;min-width:35%">
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Profile</h2>
+      <p>${data.profile}</p>
 
-  <!-- Education moved here -->
-  <h2>Education</h2>
-  ${data.education.map(e => `
-    <p>${e.school} - ${e.degree} (${e.year}) • GPA ${e.gpa}</p>
-  `).join('')}
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Skills Overview</h2>
+      ${Object.entries(data.skillsOverview).map(([k, v]) =>
+        `<p><strong>${k}:</strong> ${v.join(', ')}</p>`
+      ).join('')}
 
-  <h2>Experience</h2>
-  ${data.experience.map(e => `
-    <h3>${e.role} - ${e.company || ''}</h3>
-    <small>${e.date || ''}</small>
-    <ul>${(e.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
-  `).join('')}
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Education</h2>
+      ${data.education.map(e => `
+        <p><strong>${e.school}</strong><br>${e.degree} (${e.year}) — GPA ${e.gpa}</p>
+      `).join('')}
 
-  <h2>Projects</h2>
-  ${data.projects.map(p => `
-    <h3>${p.title}</h3>
-    <ul>${(p.details || []).map(d => `<li>${d}</li>`).join('')}</ul>
-  `).join('')}
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Certifications</h2>
+      <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
+    </div>
 
-  <h2>Certifications</h2>
-  <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
+    <!-- Right column -->
+    <div style="flex:2">
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Experience</h2>
+      ${data.experience.map(e => `
+        <div style="margin-bottom:10px">
+          <h3 style="margin:0;color:#0f172a">${e.role}</h3>
+          <p style="margin:0;font-weight:500">${e.company} — <span style="font-style:italic">${e.date}</span></p>
+          <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+      `).join('')}
+
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Projects</h2>
+      ${data.projects.map(p => `
+        <div style="margin-bottom:10px">
+          <h3 style="margin:0;color:#0f172a">${p.title}</h3>
+          <ul>${p.details.map(d => `<li>${d}</li>`).join('')}</ul>
+        </div>
+      `).join('')}
+    </div>
+  </div>
 `;
 
         // Hindari pemotongan elemen besar di tengah halaman
