@@ -189,36 +189,77 @@ if (downloadCV) {
       cvElement.style.color = '#111';
 
       cvElement.innerHTML = `
-        <h1 style="margin:0;">${data.name}</h1>
-        <p><strong>Email:</strong> ${data.contact.email} | <strong>Phone:</strong> ${data.contact.phone}</p>
-        <p><strong>Location:</strong> ${data.contact.location}</p>
-        <hr style="margin:10px 0;">
-        <h2>Profile</h2>
-        <p>${data.profile}</p>
-        <h2>Skills Overview</h2>
-        <ul>
-          ${Object.entries(data.skillsOverview).map(([key, list]) => 
-            `<li><strong>${key}:</strong> ${list.join(', ')}</li>`
-          ).join('')}
-        </ul>
-        <h2>Experience</h2>
-        ${data.experience.map(e => `
-          <h3>${e.role} - ${e.company || ''}</h3>
-          <small>${e.date || ''}</small>
-          <ul>${(e.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
-        `).join('')}
-        <h2>Projects</h2>
-        ${data.projects.map(p => `
-          <h3>${p.title}</h3>
-          <ul>${(p.details || []).map(d => `<li>${d}</li>`).join('')}</ul>
-        `).join('')}
-        <h2>Education</h2>
-        ${data.education.map(e => `
-          <p>${e.school} - ${e.degree} (${e.year}) • GPA ${e.gpa}</p>
-        `).join('')}
-        <h2>Certifications</h2>
-        <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
-      `;
+  <div style="font-family:'Inter',sans-serif;color:#111;line-height:1.5;">
+    <header style="border-bottom:2px solid #0ea5a4;padding-bottom:6px;margin-bottom:12px;">
+      <h1 style="margin:0;font-size:22px;color:#0f172a;">${data.name}</h1>
+      <p style="font-size:12px;margin:2px 0;">
+        <strong>Email:</strong> ${data.contact.email} &nbsp;•&nbsp;
+        <strong>Phone:</strong> ${data.contact.phone} &nbsp;•&nbsp;
+        <strong>Location:</strong> ${data.contact.location}
+      </p>
+    </header>
+
+    <section style="margin-bottom:10px;">
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">PROFESSIONAL PROFILE</h2>
+      <p style="font-size:12px;margin:0;">${data.profile}</p>
+    </section>
+
+    <section style="margin-bottom:10px;">
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">SKILLS OVERVIEW</h2>
+      ${Object.entries(data.skillsOverview).map(([k, list]) => `
+        <p style="font-size:12px;margin:2px 0;">
+          <strong>${k[0].toUpperCase()+k.slice(1)}:</strong> ${list.join(', ')}
+        </p>
+      `).join('')}
+    </section>
+
+    <section style="margin-bottom:10px;">
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">EXPERIENCE</h2>
+      ${data.experience.map(e => `
+        <div style="margin-bottom:6px;">
+          <p style="font-size:12.5px;margin:0;">
+            <strong>${e.role}</strong> – ${e.company || ''}
+          </p>
+          <small style="color:#475569;font-size:11px;">${e.date || ''}</small>
+          <ul style="margin:4px 0 0 16px;font-size:12px;">
+            ${(e.bullets || []).map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('')}
+    </section>
+
+    <section style="margin-bottom:10px;">
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">PROJECTS</h2>
+      ${data.projects.map(p => `
+        <div style="margin-bottom:6px;">
+          <p style="font-size:12.5px;margin:0;">
+            <strong>${p.title}</strong>${p.period ? ' – ' + p.period : ''}
+          </p>
+          <ul style="margin:4px 0 0 16px;font-size:12px;">
+            ${(p.details || []).map(d => `<li>${d}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('')}
+    </section>
+
+    <section style="margin-bottom:10px;">
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">EDUCATION</h2>
+      ${data.education.map(e => `
+        <p style="font-size:12px;margin:2px 0;">
+          ${e.school} – ${e.degree} (${e.year}) • GPA ${e.gpa}
+        </p>
+      `).join('')}
+    </section>
+
+    <section>
+      <h2 style="font-size:13px;color:#0ea5a4;margin-bottom:4px;">CERTIFICATIONS</h2>
+      <ul style="margin:0 0 0 16px;font-size:12px;">
+        ${data.certifications.map(c => `<li>${c}</li>`).join('')}
+      </ul>
+    </section>
+  </div>
+`;
+
 
       // Generate PDF dari elemen
       html2pdf()
