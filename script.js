@@ -189,55 +189,64 @@ if (downloadCV) {
       cvElement.style.color = '#111';
 
       cvElement.innerHTML = `
-  <!-- Header -->
-  <div style="background:#1e293b;color:white;padding:24px;border-radius:8px 8px 0 0">
-    <h1 style="margin:0;font-size:28px">${data.name}</h1>
-    <p style="margin:4px 0 0">${data.contact.location} • ${data.contact.phone} • ${data.contact.email}</p>
+  <!-- === HEADER === -->
+  <div style="background:linear-gradient(135deg,#0ea5a4,#14b8a6);color:#fff;padding:28px 32px;border-radius:10px 10px 0 0;box-shadow:0 2px 4px rgba(0,0,0,0.1)">
+    <h1 style="margin:0;font-size:30px;letter-spacing:0.5px;">${data.name}</h1>
+    <p style="margin:6px 0 0;font-size:14px;opacity:0.95;">${data.contact.location} • ${data.contact.phone} • ${data.contact.email}</p>
   </div>
 
-  <!-- Body -->
-  <div style="display:flex;gap:20px;padding:24px;border:1px solid #ddd;border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.5">
-    
-    <!-- Left column -->
-    <div style="flex:1;min-width:35%">
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Profile</h2>
-      <p>${data.profile}</p>
+  <!-- === BODY === -->
+  <div style="display:flex;gap:28px;padding:28px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 10px 10px;background:#f9fafb;font-family:'Inter',sans-serif;color:#0f172a;">
 
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Skills Overview</h2>
+    <!-- === LEFT COLUMN === -->
+    <div style="flex:1;min-width:35%;padding-right:8px;">
+      <h2 style="color:#0ea5a4;font-size:16px;margin:0 0 4px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">PROFILE</h2>
+      <p style="margin-bottom:14px;font-size:13px;line-height:1.5;">${data.profile}</p>
+
+      <h2 style="color:#0ea5a4;font-size:16px;margin:16px 0 4px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">SKILLS OVERVIEW</h2>
       ${Object.entries(data.skillsOverview).map(([k, v]) =>
-        `<p><strong>${k}:</strong> ${v.join(', ')}</p>`
+        `<p style="margin:4px 0;font-size:13px;"><strong>${k.toUpperCase()}:</strong> ${v.join(', ')}</p>`
       ).join('')}
 
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Education</h2>
+      <h2 style="color:#0ea5a4;font-size:16px;margin:16px 0 4px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">EDUCATION</h2>
       ${data.education.map(e => `
-        <p><strong>${e.school}</strong><br>${e.degree} (${e.year}) — GPA ${e.gpa}</p>
+        <p style="margin:4px 0 10px;font-size:13px;line-height:1.5;">
+          <strong>${e.school}</strong><br>${e.degree} (${e.year}) — <em>GPA ${e.gpa}</em>
+        </p>
       `).join('')}
 
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Certifications</h2>
-      <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
+      <h2 style="color:#0ea5a4;font-size:16px;margin:16px 0 4px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">CERTIFICATIONS</h2>
+      <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;line-height:1.5;">
+        ${data.certifications.map(c => `<li>${c}</li>`).join('')}
+      </ul>
     </div>
 
-    <!-- Right column -->
-    <div style="flex:2">
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Experience</h2>
+    <!-- === RIGHT COLUMN === -->
+    <div style="flex:2;">
+      <h2 style="color:#0ea5a4;font-size:16px;margin:0 0 6px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">EXPERIENCE</h2>
       ${data.experience.map(e => `
-        <div style="margin-bottom:10px">
-          <h3 style="margin:0;color:#0f172a">${e.role}</h3>
-          <p style="margin:0;font-weight:500">${e.company} — <span style="font-style:italic">${e.date}</span></p>
-          <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        <div style="margin-bottom:12px;">
+          <h3 style="margin:0;font-size:14px;color:#111;font-weight:600;">${e.role}</h3>
+          <p style="margin:0 0 4px;font-size:13px;color:#475569;">${e.company} — <em>${e.date}</em></p>
+          <ul style="margin:0 0 8px 18px;padding:0;font-size:13px;line-height:1.5;">
+            ${e.bullets.map(b => `<li>${b}</li>`).join('')}
+          </ul>
         </div>
       `).join('')}
 
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Projects</h2>
+      <h2 style="color:#0ea5a4;font-size:16px;margin:16px 0 6px;border-bottom:2px solid #0ea5a4;padding-bottom:4px;">PROJECTS</h2>
       ${data.projects.map(p => `
-        <div style="margin-bottom:10px">
-          <h3 style="margin:0;color:#0f172a">${p.title}</h3>
-          <ul>${p.details.map(d => `<li>${d}</li>`).join('')}</ul>
+        <div style="margin-bottom:12px;">
+          <h3 style="margin:0;font-size:14px;color:#111;font-weight:600;">${p.title}</h3>
+          <ul style="margin:0 0 8px 18px;padding:0;font-size:13px;line-height:1.5;">
+            ${p.details.map(d => `<li>${d}</li>`).join('')}
+          </ul>
         </div>
       `).join('')}
     </div>
   </div>
 `;
+
 
         // Hindari pemotongan elemen besar di tengah halaman
 const style = document.createElement('style');
