@@ -206,10 +206,6 @@ if (downloadCV) {
 
       <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Certifications</h2>
       <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Education</h2>
-      ${data.education.map(e => `
-        <p><strong>${e.school}</strong><br>${e.degree} (${e.year}) — GPA ${e.gpa}</p>
-      `).join('')}
     </div>
 
     <div style="flex:2">
@@ -229,9 +225,15 @@ if (downloadCV) {
           <ul>${p.details.map(d => `<li>${d}</li>`).join('')}</ul>
         </div>
       `).join('')}
+
+      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Education</h2>
+      ${data.education.map(e => `
+        <p><strong>${e.school}</strong><br>${e.degree} (${e.year}) — GPA ${e.gpa}</p>
+      `).join('')}
     </div>
   </div>
 `;
+
 
 
       // Generate PDF dari elemen
