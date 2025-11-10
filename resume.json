@@ -40,7 +40,7 @@
       "techStack": "",
       "bullets": [
         "Python, Pandas, Looker Studio",
-        "Analyzed coal shipment data, developed interactive dashboards, cleaned large datasets for logistics optimization."
+        "Menganalisis data pengiriman batubara, mengembangkan dasbor interaktif, membersihkan kumpulan data besar untuk optimasi logistik."
       ]
     },
     {
@@ -56,7 +56,7 @@
       "techStack": "",
       "bullets": [
         "TensorFlow, Keras, Gemma 2 LLM",
-        "Daily rainfall prediction for Bogor Regency using BMKG weather data with narrative summaries."
+        "Prediksi curah hujan harian Kabupaten Bogor menggunakan data cuaca BMKG dengan ringkasan naratif."
       ]
     }
   ],
