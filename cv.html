@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV - Indra Wijaya</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    body { background:#f6f7f9; font-family:Inter, Arial, sans-serif; }
+    .cv { max-width:820px; margin:20px auto; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+    .cv-header { background:#0f172a; color:#fff; padding:18px 22px; display:flex; justify-content:space-between; align-items:center; }
+    .cv-header h1 { margin:0; font-size:26px; }
+    .cv-header .contact { text-align:right; font-size:13px; color:#e2e8f0; }
+    .cv-body { display:flex; gap:18px; padding:18px 20px; border-top:1px solid #e6eef3; }
+    .col-left { flex:0 0 33%; font-size:14px; }
+    .col-right { flex:1; font-size:14px; }
+    h3.section { margin:0 0 6px 0; font-size:13px; color:#0b1220; letter-spacing:0.8px; }
+    p.lead { margin:0 0 10px 0; font-size:13.5px; line-height:1.35; color:#111827; }
+    ul.inline-list { margin:4px 0 0 18px; padding:0; color:#334155; }
+    .small { font-size:12.5px; color:#475569; }
+    @media print { body { background:#fff } .cv { box-shadow:none } }
+  </style>
+</head>
+<body>
+  <div class="cv" id="cvRoot">
+    <div class="cv-header">
+      <h1 id="cvName">Indra Wijaya</h1>
+      <div class="contact">
+        <div id="cvEmail">indrawijaya571@gmail.com</div>
+        <div id="cvPhone">+62 85780329416</div>
+        <div id="cvLocation">Bogor, Indonesia</div>
+      </div>
+    </div>
+
+    <div class="cv-body">
+      <div class="col-left">
+        <h3 class="section">PROFESSIONAL PROFILE</h3>
+        <p id="cvProfile" class="lead"></p>
+
+        <h3 class="section">SKILLS OVERVIEW</h3>
+        <div id="cvSkills"></div>
+
+        <h3 class="section">CERTIFICATIONS</h3>
+        <ul id="cvCerts" class="inline-list"></ul>
+
+        <h3 class="section">EDUCATION</h3>
+        <div id="cvEdu" class="small"></div>
+      </div>
+
+      <div class="col-right">
+        <h3 class="section">EXPERIENCE</h3>
+        <div id="cvExp"></div>
+
+        <h3 class="section">PROJECTS</h3>
+        <div id="cvProjects"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function render() {
+      try {
+        const res = await fetch('resume.json');
+        const data = await res.json();
+        document.getElementById('cvName').textContent = data.name;
+        document.getElementById('cvEmail').textContent = data.contact.email;
+        document.getElementById('cvPhone').textContent = data.contact.phone;
+        document.getElementById('cvLocation').textContent = data.contact.location;
+        document.getElementById('cvProfile').textContent = data.profile;
+
+        const skillsRoot = document.getElementById('cvSkills');
+        skillsRoot.innerHTML = '';
+        for (const [k, v] of Object.entries(data.skillsOverview || {})) {
+          const el = document.createElement('p');
+          el.innerHTML = `<strong>${k}</strong><br><span class="small">${v.join(', ')}</span>`;
+          skillsRoot.appendChild(el);
+        }
+
+        const certs = document.getElementById('cvCerts');
+        certs.innerHTML = (data.certifications || []).map(c => `<li>${c}</li>`).join('');
+
+        const edu = document.getElementById('cvEdu');
+        edu.innerHTML = (data.education || []).map(e => `<div><strong>${e.school}</strong><br>${e.degree} (${e.year}) • GPA ${e.gpa}</div>`).join('');
+
+        const exp = document.getElementById('cvExp');
+        exp.innerHTML = (data.experience || []).map(e => `
+          <div style="margin-bottom:8px">
+            <div style="display:flex;justify-content:space-between"><strong>${e.role}</strong><span class="small">${e.date||''}</span></div>
+            <div class="small">${e.company}</div>
+            <ul class="inline-list">${ (e.bullets||[]).map(b=>`<li>${b}</li>`).join('') }</ul>
+          </div>
+        `).join('');
+
+        const projects = document.getElementById('cvProjects');
+        projects.innerHTML = (data.projects || []).map(p => `
+          <div style="margin-bottom:8px">
+            <strong>${p.title}</strong>
+            <div class="small">${ (p.details||[]).join(' • ') }</div>
+          </div>
+        `).join('');
+
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    render();
+  </script>
+</body>
+</html>
