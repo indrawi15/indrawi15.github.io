@@ -204,6 +204,7 @@ if (downloadCV) {
     ).join('')}
   </ul>
 
+  <!-- Education moved here -->
   <h2>Education</h2>
   ${data.education.map(e => `
     <p>${e.school} - ${e.degree} (${e.year}) • GPA ${e.gpa}</p>
