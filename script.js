@@ -188,50 +188,71 @@ if (downloadCV) {
       cvElement.style.maxWidth = '800px';
       cvElement.style.color = '#111';
 
-      cvElement.innerHTML = `
-  <div style="background:#1e293b;color:white;padding:24px;border-radius:8px 8px 0 0">
-    <h1 style="margin:0;font-size:28px">${data.name}</h1>
-    <p style="margin:4px 0 0">${data.contact.location} • ${data.contact.phone} • ${data.contact.email}</p>
-  </div>
-
-  <div style="display:flex;gap:20px;padding:24px;border:1px solid #ddd;border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.5">
-    <div style="flex:1;min-width:35%">
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Profile</h2>
-      <p>${data.profile}</p>
-
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Skills</h2>
-      ${Object.entries(data.skillsOverview).map(([k, v]) =>
-        `<p><strong>${k}:</strong> ${v.join(', ')}</p>`
-      ).join('')}
-
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Certifications</h2>
-      <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
-    </div>
-
-    <div style="flex:2">
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Experience</h2>
-      ${data.experience.map(e => `
-        <div style="margin-bottom:10px">
-          <h3 style="margin:0;color:#0f172a">${e.role}</h3>
-          <p style="margin:0;font-weight:500">${e.company} — <span style="font-style:italic">${e.date}</span></p>
-          <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+            cvElement.innerHTML = `
+    <div style="font-family:Inter, Arial, sans-serif; max-width:820px; margin:0 auto; color:#0f172a;">
+        <!-- Header -->
+        <div style="background:#0f172a; color:#fff; padding:18px 22px; border-radius:8px 8px 0 0; display:flex; justify-content:space-between; align-items:center;">
+            <div style="flex:1">
+                <h1 style="margin:0; font-size:24px; font-weight:700;">${data.name}</h1>
+            </div>
+            <div style="text-align:right; font-size:12px; line-height:1.35; min-width:200px;">
+                <div style="color:#e2e8f0;">${data.contact.email}</div>
+                <div style="margin-top:6px; color:#cbd5e1;">${data.contact.phone}</div>
+                <div style="margin-top:6px; color:#cbd5e1;">${data.contact.location}</div>
+            </div>
         </div>
-      `).join('')}
 
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Projects</h2>
-      ${data.projects.map(p => `
-        <div style="margin-bottom:10px">
-          <h3 style="margin:0;color:#0f172a">${p.title}</h3>
-          <ul>${p.details.map(d => `<li>${d}</li>`).join('')}</ul>
+        <!-- Body -->
+        <div style="display:flex; gap:18px; border:1px solid #e6eef3; border-top:none; padding:18px 20px; background:#fff; border-radius:0 0 8px 8px;">
+
+            <!-- Left column -->
+            <div style="flex:0 0 33%; padding-right:12px; font-size:13px;">
+                <h3 style="margin:0 0 6px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Profile</h3>
+                <p style="margin:0 0 10px 0; font-size:12.5px; line-height:1.35;">${data.profile}</p>
+
+                <h3 style="margin:0 0 6px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Skills</h3>
+                ${Object.entries(data.skillsOverview || {}).map(([k, v]) =>
+                    `<p style="margin:2px 0; font-size:12.2px;"><strong style=\"font-weight:600;\">${k}</strong><br><span style=\"color:#374151;\">${v.join(', ')}</span></p>`
+                ).join('')}
+
+                <h3 style="margin:8px 0 6px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Certifications</h3>
+                <ul style="margin:4px 0 0 18px; padding:0; font-size:12px; color:#334155;">
+                    ${ (data.certifications || []).map(c => `<li style="margin-bottom:4px;">${c}</li>`).join('') }
+                </ul>
+            </div>
+
+            <!-- Right column -->
+            <div style="flex:1; padding-left:6px; font-size:13px;">
+                <h3 style="margin:0 0 8px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Experience</h3>
+                ${ (data.experience || []).map(e => `
+                    <div style="margin-bottom:8px;">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                            <div style="font-weight:700; font-size:13px;">${e.role}</div>
+                            <div style="font-size:11.5px; color:#475569">${e.date || ''}</div>
+                        </div>
+                        <div style="font-size:12px; color:#334155; margin:4px 0 6px 0;">${e.company}</div>
+                        <ul style="margin:0 0 6px 18px; font-size:12.2px; color:#263238;">
+                            ${ (e.bullets || []).map(b => `<li style=\"margin-bottom:4px; line-height:1.32;\">${b}</li>`).join('') }
+                        </ul>
+                    </div>
+                `).join('') }
+
+                <h3 style="margin:6px 0 8px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Projects</h3>
+                ${ (data.projects || []).map(p => `
+                    <div style="margin-bottom:8px;">
+                        <div style="font-weight:600; font-size:13px;">${p.title}</div>
+                        ${ (p.details || []).map(d => `<div style=\"font-size:12px; color:#374151; margin:4px 0;\">• ${d}</div>`).join('') }
+                    </div>
+                `).join('') }
+
+                <h3 style="margin:6px 0 6px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Education</h3>
+                ${ (data.education || []).map(ed => `
+                    <div style="font-size:12px; color:#334155; margin-bottom:6px;"><strong>${ed.school}</strong><br>${ed.degree} (${ed.year}) — GPA ${ed.gpa}</div>
+                `).join('') }
+            </div>
+
         </div>
-      `).join('')}
-
-      <h2 style="border-bottom:2px solid #1e293b;padding-bottom:4px">Education</h2>
-      ${data.education.map(e => `
-        <p><strong>${e.school}</strong><br>${e.degree} (${e.year}) — GPA ${e.gpa}</p>
-      `).join('')}
     </div>
-  </div>
 `;
 
 
