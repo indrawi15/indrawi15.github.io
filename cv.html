@@ -7,14 +7,21 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-    body { background:#f6f7f9; font-family:Inter, Arial, sans-serif; }
-    .cv { max-width:820px; margin:20px auto; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
-    .cv-header { background:#0f172a; color:#fff; padding:18px 22px; display:flex; justify-content:space-between; align-items:center; }
-    .cv-header h1 { margin:0; font-size:26px; }
-    .cv-header .contact { text-align:right; font-size:13px; color:#e2e8f0; }
-    .cv-body { display:flex; gap:18px; padding:18px 20px; border-top:1px solid #e6eef3; }
-    .col-left { flex:0 0 33%; font-size:14px; }
-    .col-right { flex:1; font-size:14px; }
+  html, body { margin:0; padding:0; height:100%; }
+  body { background:#f6f7f9; font-family:Inter, Arial, sans-serif; }
+  /* We'll control print margins via the .cv padding so browsers behave consistently */
+  @page { margin: 0; }
+  @media print {
+    body { margin: 0; background: #fff; }
+    .cv { box-shadow: none; margin: 0; width:210mm; padding:0.4in; box-sizing:border-box; }
+  }
+  .cv { width:210mm; margin:8px auto; background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.04); font-size:15px; box-sizing:border-box; padding:0.4in; }
+  .cv-header { background:#0f172a; color:#fff; padding:12px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .cv-header h1 { margin:0; font-size:28px; }
+  .cv-header .contact { text-align:right; font-size:13px; color:#e2e8f0; }
+  .cv-body { display:flex; gap:12px; padding:10px 12px; border-top:1px solid #e6eef3; }
+  .col-left { flex:0 0 30%; padding:8px 0; }
+  .col-right { flex:1; padding:8px 0; }
     h3.section { margin:0 0 6px 0; font-size:13px; color:#0b1220; letter-spacing:0.8px; }
     p.lead { margin:0 0 10px 0; font-size:13.5px; line-height:1.35; color:#111827; }
     ul.inline-list { margin:4px 0 0 18px; padding:0; color:#334155; }

@@ -20,49 +20,6 @@ if (hamburger) {
     });
 }
 
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const spans = hamburger.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navbar background on scroll
-const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-    } else {
-        navbar.style.boxShadow = 'none';
-    }
-    
-    lastScroll = currentScroll;
-});
-
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
@@ -182,18 +139,19 @@ if (downloadCV) {
       }
 
       // Bangun struktur CV sementara untuk dijadikan PDF
-      const cvElement = document.createElement('div');
-      cvElement.style.fontFamily = 'Inter, sans-serif';
-      cvElement.style.padding = '20px';
-      cvElement.style.maxWidth = '800px';
-      cvElement.style.color = '#111';
+    const cvElement = document.createElement('div');
+    cvElement.style.fontFamily = 'Inter, sans-serif';
+    // reset outer wrapper padding/width so inner template controls page layout exactly
+    cvElement.style.padding = '0';
+    cvElement.style.maxWidth = 'none';
+    cvElement.style.color = '#111';
 
             cvElement.innerHTML = `
-    <div style="font-family:Inter, Arial, sans-serif; max-width:820px; margin:0 auto; color:#0f172a;">
+            <div style="font-family:Inter, Arial, sans-serif; width:210mm; margin:0 auto; color:#0f172a; font-size:15px; box-sizing:border-box; padding:0.3in;">
         <!-- Header -->
-        <div style="background:#0f172a; color:#fff; padding:18px 22px; border-radius:8px 8px 0 0; display:flex; justify-content:space-between; align-items:center;">
+    <div style="background:#0f172a; color:#fff; padding:12px 14px; border-radius:8px 8px 0 0; display:flex; justify-content:space-between; align-items:center;">
                                 <div style="flex:1">
-                                <h1 style="margin:0; font-size:26px; font-weight:700;">${data.name}</h1>
+                                <h1 style="margin:0; font-size:28px; font-weight:700;">${data.name}</h1>
             </div>
             <div style="text-align:right; font-size:13px; line-height:1.35; min-width:200px;">
                 <div style="color:#e2e8f0;">${data.contact.email}</div>
@@ -203,12 +161,12 @@ if (downloadCV) {
         </div>
 
         <!-- Body -->
-        <div style="display:flex; gap:18px; border:1px solid #e6eef3; border-top:none; padding:18px 20px; background:#fff; border-radius:0 0 8px 8px;">
+    <div style="display:flex; gap:12px; border:1px solid #e6eef3; border-top:none; padding:12px 14px; background:#fff; border-radius:0 0 8px 8px;">
 
             <!-- Left column -->
-            <div style="flex:0 0 33%; padding-right:12px; font-size:14px;">
-                <h3 style="margin:0 0 6px 0; font-size:13px; letter-spacing:0.8px; color:#0b1220;">Profile</h3>
-                <p style="margin:0 0 10px 0; font-size:13.5px; line-height:1.35;">${data.profile}</p>
+            <div style="flex:0 0 30%; padding:8px 10px;">
+                <h3 style="margin:0 0 6px 0; font-size:13px; letter-spacing:0.6px; color:#0b1220;">Profile</h3>
+                <p style="margin:0 0 8px 0; font-size:14.8px; line-height:1.32;">${data.profile}</p>
 
                 <h3 style="margin:0 0 6px 0; font-size:12px; letter-spacing:0.8px; color:#0b1220;">Skills</h3>
                 ${Object.entries(data.skillsOverview || {}).map(([k, v]) =>
@@ -220,33 +178,33 @@ if (downloadCV) {
                     ${ (data.certifications || []).map(c => `<li style="margin-bottom:4px;">${c}</li>`).join('') }
                 </ul>
 
-                <h3 style="margin:8px 0 6px 0; font-size:13px; letter-spacing:0.8px; color:#0b1220;">Education</h3>
+                <h3 style="margin:8px 0 6px 0; font-size:13px; letter-spacing:0.6px; color:#0b1220;">Education</h3>
                 ${ (data.education || []).map(ed => `
-                    <div style="font-size:13px; color:#334155; margin-bottom:6px;"><strong>${ed.school}</strong><br>${ed.degree} (${ed.year}) — GPA ${ed.gpa}</div>
+                    <div style="font-size:13.5px; color:#334155; margin-bottom:6px;"><strong>${ed.school}</strong><br>${ed.degree} (${ed.year}) — GPA ${ed.gpa}</div>
                 `).join('') }
             </div>
 
             <!-- Right column -->
-            <div style="flex:1; padding-left:6px; font-size:14px;">
-                <h3 style="margin:0 0 8px 0; font-size:13px; letter-spacing:0.8px; color:#0b1220;">Experience</h3>
+            <div style="flex:1; padding:8px 8px;">
+                <h3 style="margin:0 0 8px 0; font-size:13px; letter-spacing:0.6px; color:#0b1220;">Experience</h3>
                 ${ (data.experience || []).map(e => `
                     <div style="margin-bottom:8px;">
                         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
                             <div style="font-weight:700; font-size:14px;">${e.role}</div>
                             <div style="font-size:12.5px; color:#475569">${e.date || ''}</div>
                         </div>
-                        <div style="font-size:13px; color:#334155; margin:4px 0 6px 0;">${e.company}</div>
-                        <ul style="margin:0 0 6px 18px; font-size:13.2px; color:#263238;">
-                            ${ (e.bullets || []).map(b => `<li style=\"margin-bottom:4px; line-height:1.32;\">${b}</li>`).join('') }
+                        <div style="font-size:13.5px; color:#334155; margin:4px 0 6px 0;">${e.company}</div>
+                        <ul style="margin:0 0 6px 16px; font-size:13.5px; color:#263238;">
+                            ${ (e.bullets || []).map(b => `<li style=\"margin-bottom:4px; line-height:1.3;\">${b}</li>`).join('') }
                         </ul>
                     </div>
                 `).join('') }
 
-                <h3 style="margin:6px 0 8px 0; font-size:13px; letter-spacing:0.8px; color:#0b1220;">Projects</h3>
+                <h3 style="margin:6px 0 8px 0; font-size:13px; letter-spacing:0.6px; color:#0b1220;">Projects</h3>
                 ${ (data.projects || []).map(p => `
                     <div style="margin-bottom:8px;">
-                        <div style="font-weight:600; font-size:14px;">${p.title}</div>
-                        ${ (p.details || []).map(d => `<div style=\"font-size:13px; color:#374151; margin:4px 0;\">• ${d}</div>`).join('') }
+                        <div style="font-weight:600; font-size:14.5px;">${p.title}</div>
+                        ${ (p.details || []).map(d => `<div style=\"font-size:13.5px; color:#374151; margin:4px 0;\">• ${d}</div>`).join('') }
                     </div>
                 `).join('') }
 
@@ -257,20 +215,37 @@ if (downloadCV) {
     </div>
 `;
 
+// Hindari pemotongan elemen besar di tengah halaman
+const style = document.createElement('style');
+// Be careful: avoid overly broad "avoid break" rules (they can push content to the next page).
+// Only prevent breaks inside lists/paragraphs and marked sections, allow divs to break across pages.
+style.textContent = `
+    * { box-sizing: border-box; }
+    h2, h3 { page-break-after: avoid; }
+    /* Prevent lists and paragraphs from being split awkwardly */
+    ul, p { page-break-inside: avoid; break-inside: avoid; }
+    /* Use .no-break or .cv-section for blocks that must not be split across pages */
+    .no-break, .cv-section { page-break-inside: avoid; break-inside: avoid; }
+`;
+cvElement.prepend(style);
+
 
 
       // Generate PDF dari elemen
-      html2pdf()
-        .from(cvElement)
-        .set({
-          margin: 10,
-          filename: `${data.name.replace(/\s+/g, '_')}_CV.pdf`,
-          html2canvas: { scale: 2 },
-        })
-        .save();
+                html2pdf()
+                    .from(cvElement)
+                    .set({
+                        // We'll handle margins via the element padding and set jsPDF/html2pdf margin to 0
+                        margin: 0,
+                        filename: `${data.name.replace(/\s+/g, '_')}_CV.pdf`,
+                        html2canvas: { scale: 2 },
+                        // Ensure jsPDF uses inches and A4 format
+                        jsPDF: { unit: 'in', format: 'a4' }
+                    })
+                    .save();
 
     } catch (err) {
-      alert('❌ Gagal memuat resume.json atau membuat PDF');
+      alert('Gagal memuat resume.json atau membuat PDF');
       console.error(err);
     }
   });
