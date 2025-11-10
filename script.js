@@ -164,16 +164,75 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(savedTheme);
 });
 
-// Download CV Button
+// === Dynamic Download CV ===
 const downloadCV = document.getElementById('downloadCV');
 if (downloadCV) {
-    downloadCV.addEventListener('click', () => {
-        const link = document.createElement('a');
-        link.href = 'asset/Cv Indra Wijaya 2025.pdf';
-        link.download = 'CV_Indra_Wijaya_2025.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-}
+  downloadCV.addEventListener('click', async () => {
+    try {
+      // Ambil data dari resume.json terbaru (auto generated di GitHub)
+      const res = await fetch('resume.json');
+      const data = await res.json();
 
+      // Lazy-load html2pdf.js (biar gak nambah load di awal)
+      if (!window.html2pdf) {
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js';
+        document.body.appendChild(s);
+        await new Promise(r => (s.onload = r));
+      }
+
+      // Bangun struktur CV sementara untuk dijadikan PDF
+      const cvElement = document.createElement('div');
+      cvElement.style.fontFamily = 'Inter, sans-serif';
+      cvElement.style.padding = '20px';
+      cvElement.style.maxWidth = '800px';
+      cvElement.style.color = '#111';
+
+      cvElement.innerHTML = `
+        <h1 style="margin:0;">${data.name}</h1>
+        <p><strong>Email:</strong> ${data.contact.email} | <strong>Phone:</strong> ${data.contact.phone}</p>
+        <p><strong>Location:</strong> ${data.contact.location}</p>
+        <hr style="margin:10px 0;">
+        <h2>Profile</h2>
+        <p>${data.profile}</p>
+        <h2>Skills Overview</h2>
+        <ul>
+          ${Object.entries(data.skillsOverview).map(([key, list]) => 
+            `<li><strong>${key}:</strong> ${list.join(', ')}</li>`
+          ).join('')}
+        </ul>
+        <h2>Experience</h2>
+        ${data.experience.map(e => `
+          <h3>${e.role} - ${e.company || ''}</h3>
+          <small>${e.date || ''}</small>
+          <ul>${(e.bullets || []).map(b => `<li>${b}</li>`).join('')}</ul>
+        `).join('')}
+        <h2>Projects</h2>
+        ${data.projects.map(p => `
+          <h3>${p.title}</h3>
+          <ul>${(p.details || []).map(d => `<li>${d}</li>`).join('')}</ul>
+        `).join('')}
+        <h2>Education</h2>
+        ${data.education.map(e => `
+          <p>${e.school} - ${e.degree} (${e.year}) • GPA ${e.gpa}</p>
+        `).join('')}
+        <h2>Certifications</h2>
+        <ul>${data.certifications.map(c => `<li>${c}</li>`).join('')}</ul>
+      `;
+
+      // Generate PDF dari elemen
+      html2pdf()
+        .from(cvElement)
+        .set({
+          margin: 10,
+          filename: `${data.name.replace(/\s+/g, '_')}_CV.pdf`,
+          html2canvas: { scale: 2 },
+        })
+        .save();
+
+    } catch (err) {
+      alert('❌ Gagal memuat resume.json atau membuat PDF');
+      console.error(err);
+    }
+  });
+}
