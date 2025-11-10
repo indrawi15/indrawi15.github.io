@@ -234,6 +234,27 @@ if (downloadCV) {
   </div>
 `;
 
+        // Hindari pemotongan elemen besar di tengah halaman
+const style = document.createElement('style');
+style.textContent = `
+  * {
+    box-sizing: border-box;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  ul, p, div {
+    page-break-inside: avoid;
+  }
+  div {
+    break-inside: avoid;
+  }
+  .cv-section {
+    page-break-before: auto;
+    page-break-inside: avoid;
+  }
+`;
+cvElement.prepend(style);
 
 
       // Generate PDF dari elemen
