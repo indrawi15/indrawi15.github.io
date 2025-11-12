@@ -5,7 +5,9 @@ let currentLang = 'id'; // Default language
 // Load translations
 async function loadTranslations() {
     try {
-        const response = await fetch('translations.json');
+        // Prevent cached translations on GitHub Pages by cache-busting
+        const response = await fetch('translations.json?cb=' + Date.now());
+        if (!response.ok) throw new Error(`translations.json fetch failed: ${response.status} ${response.statusText}`);
         translations = await response.json();
         
         // Get saved language from localStorage or default to 'id'
@@ -17,6 +19,21 @@ async function loadTranslations() {
         updateLangIcon(currentLang);
     } catch (error) {
         console.error('Failed to load translations:', error);
+        // Show a visible banner so deploy-time failures are obvious without opening DevTools
+        try {
+            const bannerId = 'translation-error-banner';
+            if (!document.getElementById(bannerId)) {
+                const b = document.createElement('div');
+                b.id = bannerId;
+                b.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#fee2e2;color:#7f1d1d;padding:8px 12px;z-index:9999;text-align:center;font-size:14px;box-shadow:0 2px 6px rgba(0,0,0,0.05);';
+                b.textContent = '⚠️ Terjadi kesalahan memuat terjemahan di situs terdeploy. Periksa Console (F12) untuk detail.';
+                document.body.appendChild(b);
+                // Auto-remove after 12s so it doesn't block the UI forever
+                setTimeout(() => b.remove(), 12000);
+            }
+        } catch (_) {
+            /* ignore DOM errors */
+        }
     }
 }
 
@@ -199,7 +216,8 @@ if (downloadCV) {
   downloadCV.addEventListener('click', async () => {
     try {
       // Ambil data dari resume.json terbaru (auto generated di GitHub)
-      const res = await fetch('resume.json');
+    // Cache-bust resume.json on download to ensure latest content is used on deployed site
+    const res = await fetch('resume.json?cb=' + Date.now());
       const data = await res.json();
 
       // Lazy-load html2pdf.js (biar gak nambah load di awal)

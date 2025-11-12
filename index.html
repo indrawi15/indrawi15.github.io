@@ -349,7 +349,19 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Load script.js with a runtime cache-buster to avoid stale cached JS on GitHub Pages -->
+    <script>
+        (function(){
+            try {
+                var s = document.createElement('script');
+                s.src = 'script.js?cb=' + Date.now();
+                s.defer = true;
+                document.body.appendChild(s);
+            } catch (e) {
+                console.error('Failed to load script.js dynamically', e);
+            }
+        })();
+    </script>
 </body>
 </html>
 
