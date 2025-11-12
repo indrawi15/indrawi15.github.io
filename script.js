@@ -1,3 +1,71 @@
+// === Language Translation System ===
+let translations = {};
+let currentLang = 'id'; // Default language
+
+// Load translations
+async function loadTranslations() {
+    try {
+        const response = await fetch('translations.json');
+        translations = await response.json();
+        
+        // Get saved language from localStorage or default to 'id'
+        const savedLang = localStorage.getItem('language') || 'id';
+        currentLang = savedLang;
+        
+        // Apply translations
+        applyTranslations(currentLang);
+        updateLangIcon(currentLang);
+    } catch (error) {
+        console.error('Failed to load translations:', error);
+    }
+}
+
+// Apply translations to elements with data-i18n attribute
+function applyTranslations(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    
+    elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        
+        let value = translations[lang];
+        for (const k of keys) {
+            if (value && value[k] !== undefined) {
+                value = value[k];
+            } else {
+                console.warn(`Translation key not found: ${key}`);
+                return;
+            }
+        }
+        
+        if (typeof value === 'string') {
+            element.textContent = value;
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.setAttribute('lang', lang);
+}
+
+// Update language icon
+function updateLangIcon(lang) {
+    const langIcon = document.querySelector('.lang-icon');
+    if (langIcon) {
+        langIcon.textContent = lang === 'id' ? '🇬🇧' : '🇮🇩';
+    }
+}
+
+// Language Toggle
+const langToggle = document.getElementById('langToggle');
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'id' ? 'en' : 'id';
+        localStorage.setItem('language', currentLang);
+        applyTranslations(currentLang);
+        updateLangIcon(currentLang);
+    });
+}
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
