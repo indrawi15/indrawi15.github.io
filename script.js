@@ -183,10 +183,13 @@ if (themeToggle) {
     });
 }
 
-// Initialize theme on page load
+// Initialize theme and language on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = getTheme();
     setTheme(savedTheme);
+    
+    // Load translations
+    loadTranslations();
 });
 
 // === Dynamic Download CV ===
