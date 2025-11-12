@@ -1,0 +1,294 @@
+{
+  "id": {
+    "nav": {
+      "home": "Beranda",
+      "about": "Tentang",
+      "skills": "Keahlian",
+      "projects": "Proyek",
+      "contact": "Kontak"
+    },
+    "hero": {
+      "title": "Portfolio AI & Data Science - Indra Wijaya",
+      "subtitle": "Sebagai lulusan baru dari Universitas Bhayangkara Jakarta Raya dengan spesialisasi Data Science, Machine Learning, dan Business Intelligence, saya membangun solusi cerdas yang mengubah data menjadi wawasan berharga untuk bisnis modern. Jelajahi proyek-proyek inovatif saya di bidang kecerdasan buatan dan analitik data.",
+      "btnProjects": "Lihat Proyek",
+      "btnContact": "Hubungi Saya",
+      "btnCV": "Unduh CV"
+    },
+    "about": {
+      "title": "Tentang Saya",
+      "description": "Indra Wijaya adalah lulusan Informatika – Universitas Bhayangkara Jakarta Raya (IPK 3.61) yang berlokasi di Bogor, Indonesia. Beliau memiliki spesialisasi dalam Data Science, Machine Learning, dan Business Intelligence. Indra memiliki pengalaman sebagai Data Analyst Intern di PT Surveyor Indonesia, dengan keahlian dalam analisis data, predictive modeling, dan pengembangan dashboard interaktif. Indra sangat analitis, adaptif, dan memiliki passion terhadap AI serta inovasi berbasis data.",
+      "skillsTitle": "Keahlian:",
+      "skillsDesc": "Python, SQL, Pandas, NumPy, Scikit-learn, TensorFlow, Keras, Looker Studio, dll.",
+      "certTitle": "Sertifikasi:",
+      "certDesc": "Associate Data Scientist (LSP Informatika BNSP), Certified Independent Study GreatEdu Data Science Bootcamp."
+    },
+    "skills": {
+      "title": "Keahlian Teknis",
+      "ml": {
+        "title": "Machine Learning",
+        "items": ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning"]
+      },
+      "dl": {
+        "title": "Deep Learning",
+        "items": ["Neural Networks", "Computer Vision", "Natural Language Processing"]
+      },
+      "tools": {
+        "title": "Tools & Platforms",
+        "items": ["Python & Frameworks", "Cloud Services (AWS, GCP, OpenRouter)", "Data Engineering & BI"]
+      }
+    },
+    "projects": {
+      "title": "Proyek Unggulan",
+      "subtitle": "Berikut adalah beberapa proyek machine learning dan AI yang telah saya kembangkan:",
+      "items": [
+        {
+          "title": "Rainfall Prediction Using LSTM and Gemma 2",
+          "desc": "Model LSTM untuk prediksi curah hujan harian di Kabupaten Bogor menggunakan data BMKG, dengan Gemma 2 LLM untuk generate narrative summaries (Final Thesis 2025)."
+        },
+        {
+          "title": "Churn Prediction Model",
+          "desc": "Implementasi multiple algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM) dengan akurasi 86.7% menggunakan XGBoost untuk memprediksi churn pelanggan."
+        },
+        {
+          "title": "Medical Cost Regression App",
+          "desc": "Prediksi biaya medis menggunakan Linear, Lasso, dan Ridge Regression (R² = 0.78), deployed dengan Flask API."
+        },
+        {
+          "title": "Customer Segmentation (RFM Clustering)",
+          "desc": "K-Means Clustering untuk segmentasi customer berdasarkan behavioral data."
+        },
+        {
+          "title": "House Price Prediction",
+          "desc": "Model prediksi harga rumah dengan R² = 0.83 (train) dan R² = 0.81 (test) menggunakan 1460 training dan 1459 test datasets."
+        },
+        {
+          "title": "Gold Price Prediction",
+          "desc": "Model peramalan deret waktu untuk memprediksi harga emas menggunakan data historis, memanfaatkan model LSTM dengan akurasi 90%."
+        }
+      ],
+      "detailsTitle": "Detail Proyek Teknis",
+      "details": [
+        {
+          "title": "Data Analysis at PT Surveyor Indonesia",
+          "tech": "Tech Stack:",
+          "techValue": "Python, Pandas, Looker Studio",
+          "desc": "Menganalisis data pengiriman batubara, mengembangkan dasbor interaktif, membersihkan kumpulan data besar untuk optimasi logistik."
+        },
+        {
+          "title": "Medical Cost Prediction (Deployed)",
+          "tech": "Tech Stack:",
+          "techValue": "Flask, Scikit-learn, Python",
+          "desc": "Linear/Lasso/Ridge Regression with R² = 0.78, deployed as Flask API."
+        },
+        {
+          "title": "LSTM Rainfall Prediction",
+          "tech": "Tech Stack:",
+          "techValue": "TensorFlow, Keras, Gemma 2 LLM",
+          "desc": "Prediksi curah hujan harian Kabupaten Bogor menggunakan data cuaca BMKG dengan ringkasan naratif."
+        }
+      ]
+    },
+    "metrics": {
+      "title": "Metrik & Pencapaian",
+      "items": [
+        {
+          "number": "20+",
+          "label": "Proyek Selesai",
+          "desc": "Di berbagai industri dan domain."
+        },
+        {
+          "number": "0.83",
+          "label": "Skor R²",
+          "desc": "Dicapai dalam prediksi harga rumah."
+        },
+        {
+          "number": "90.5%",
+          "label": "Akurasi Model Terbaik",
+          "desc": "Dicapai dalam proyek prediksi Churn."
+        }
+      ]
+    },
+    "services": {
+      "title": "Layanan & Keahlian Khusus",
+      "items": [
+        {
+          "title": "Data Analysis & Insights",
+          "desc": "Analisis data untuk mengidentifikasi pola dan tren bisnis, pengembangan dashboard interaktif untuk monitoring real-time."
+        },
+        {
+          "title": "Machine Learning Solutions",
+          "desc": "Pengembangan model prediktif untuk churn prediction, forecasting, dan classification dengan berbagai algoritma ML."
+        },
+        {
+          "title": "Data Visualization & Reporting",
+          "desc": "Pembuatan visualisasi data yang informatif menggunakan Looker Studio, Matplotlib, dan tools lainnya untuk business intelligence."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Koneksi & Kolaborasi",
+      "subtitle": "Mari terhubung dan berkolaborasi untuk menciptakan solusi AI yang transformatif. Saya terbuka untuk diskusi project baru, partnership, dan kesempatan speaking.",
+      "heading": "Hubungi Saya",
+      "email": "Email:",
+      "phone": "Phone:",
+      "location": "Location:",
+      "locationValue": "Bogor, Indonesia",
+      "socialTitle": "Media Sosial & Sertifikasi",
+      "socialDesc": "Aktif berbagi insights tentang AI, ML trends, dan data science best practices di berbagai platform.",
+      "certLabel": "Sertifikasi:",
+      "certValue": "Associate Data Scientist (LSP Informatika BNSP), Junior Data Scientist dan Certified Independent Study GreatEdu Data Science Bootcamp."
+    },
+    "cta": {
+      "title": "Mari Dimulai Proyek Berikutnya",
+      "desc": "Sebagai lulusan baru yang bersemangat, saya siap membawa ide-ide segar dan dedikasi untuk proyek AI atau data science Anda. Mari kita wujudkan visi Anda menjadi solusi inovatif dan berdampak.",
+      "btnEmail": "Mulai Email Saya",
+      "btnPortfolio": "Lihat Portofolio Lengkap"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "AI & Data Science Portfolio - Indra Wijaya",
+      "subtitle": "As a recent graduate from Universitas Bhayangkara Jakarta Raya specializing in Data Science, Machine Learning, and Business Intelligence, I build intelligent solutions that transform data into valuable insights for modern businesses. Explore my innovative projects in artificial intelligence and data analytics.",
+      "btnProjects": "View Projects",
+      "btnContact": "Contact Me",
+      "btnCV": "Download CV"
+    },
+    "about": {
+      "title": "About Me",
+      "description": "Indra Wijaya is a graduate of Informatics – Universitas Bhayangkara Jakarta Raya (GPA 3.61) located in Bogor, Indonesia. He specializes in Data Science, Machine Learning, and Business Intelligence. Indra has experience as a Data Analyst Intern at PT Surveyor Indonesia, with expertise in data analysis, predictive modeling, and interactive dashboard development. Indra is highly analytical, adaptive, and passionate about AI and data-driven innovation.",
+      "skillsTitle": "Skills:",
+      "skillsDesc": "Python, SQL, Pandas, NumPy, Scikit-learn, TensorFlow, Keras, Looker Studio, etc.",
+      "certTitle": "Certifications:",
+      "certDesc": "Associate Data Scientist (LSP Informatika BNSP), Certified Independent Study GreatEdu Data Science Bootcamp."
+    },
+    "skills": {
+      "title": "Technical Skills",
+      "ml": {
+        "title": "Machine Learning",
+        "items": ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning"]
+      },
+      "dl": {
+        "title": "Deep Learning",
+        "items": ["Neural Networks", "Computer Vision", "Natural Language Processing"]
+      },
+      "tools": {
+        "title": "Tools & Platforms",
+        "items": ["Python & Frameworks", "Cloud Services (AWS, GCP, OpenRouter)", "Data Engineering & BI"]
+      }
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Here are some machine learning and AI projects I have developed:",
+      "items": [
+        {
+          "title": "Rainfall Prediction Using LSTM and Gemma 2",
+          "desc": "LSTM model for daily rainfall prediction in Bogor Regency using BMKG data, with Gemma 2 LLM to generate narrative summaries (Final Thesis 2025)."
+        },
+        {
+          "title": "Churn Prediction Model",
+          "desc": "Implementation of multiple algorithms (Logistic Regression, Random Forest, XGBoost, LightGBM) with 86.7% accuracy using XGBoost to predict customer churn."
+        },
+        {
+          "title": "Medical Cost Regression App",
+          "desc": "Medical cost prediction using Linear, Lasso, and Ridge Regression (R² = 0.78), deployed with Flask API."
+        },
+        {
+          "title": "Customer Segmentation (RFM Clustering)",
+          "desc": "K-Means Clustering for customer segmentation based on behavioral data."
+        },
+        {
+          "title": "House Price Prediction",
+          "desc": "House price prediction model with R² = 0.83 (train) and R² = 0.81 (test) using 1460 training and 1459 test datasets."
+        },
+        {
+          "title": "Gold Price Prediction",
+          "desc": "Time series forecasting model to predict gold prices using historical data, utilizing LSTM model with 90% accuracy."
+        }
+      ],
+      "detailsTitle": "Technical Project Details",
+      "details": [
+        {
+          "title": "Data Analysis at PT Surveyor Indonesia",
+          "tech": "Tech Stack:",
+          "techValue": "Python, Pandas, Looker Studio",
+          "desc": "Analyzed coal shipment data, developed interactive dashboards, cleaned large datasets for logistics optimization."
+        },
+        {
+          "title": "Medical Cost Prediction (Deployed)",
+          "tech": "Tech Stack:",
+          "techValue": "Flask, Scikit-learn, Python",
+          "desc": "Linear/Lasso/Ridge Regression with R² = 0.78, deployed as Flask API."
+        },
+        {
+          "title": "LSTM Rainfall Prediction",
+          "tech": "Tech Stack:",
+          "techValue": "TensorFlow, Keras, Gemma 2 LLM",
+          "desc": "Daily rainfall prediction for Bogor Regency using BMKG weather data with narrative summaries."
+        }
+      ]
+    },
+    "metrics": {
+      "title": "Metrics & Achievements",
+      "items": [
+        {
+          "number": "20+",
+          "label": "Completed Projects",
+          "desc": "Across various industries and domains."
+        },
+        {
+          "number": "0.83",
+          "label": "R² Score",
+          "desc": "Achieved in house price prediction."
+        },
+        {
+          "number": "90.5%",
+          "label": "Best Model Accuracy",
+          "desc": "Achieved in Churn prediction project."
+        }
+      ]
+    },
+    "services": {
+      "title": "Services & Special Expertise",
+      "items": [
+        {
+          "title": "Data Analysis & Insights",
+          "desc": "Data analysis to identify business patterns and trends, development of interactive dashboards for real-time monitoring."
+        },
+        {
+          "title": "Machine Learning Solutions",
+          "desc": "Development of predictive models for churn prediction, forecasting, and classification with various ML algorithms."
+        },
+        {
+          "title": "Data Visualization & Reporting",
+          "desc": "Creating informative data visualizations using Looker Studio, Matplotlib, and other tools for business intelligence."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Connection & Collaboration",
+      "subtitle": "Let's connect and collaborate to create transformative AI solutions. I'm open to discussions about new projects, partnerships, and speaking opportunities.",
+      "heading": "Contact Me",
+      "email": "Email:",
+      "phone": "Phone:",
+      "location": "Location:",
+      "locationValue": "Bogor, Indonesia",
+      "socialTitle": "Social Media & Certifications",
+      "socialDesc": "Actively sharing insights about AI, ML trends, and data science best practices across various platforms.",
+      "certLabel": "Certifications:",
+      "certValue": "Associate Data Scientist (LSP Informatika BNSP), Junior Data Scientist and Certified Independent Study GreatEdu Data Science Bootcamp."
+    },
+    "cta": {
+      "title": "Let's Start the Next Project",
+      "desc": "As an enthusiastic recent graduate, I'm ready to bring fresh ideas and dedication to your AI or data science project. Let's turn your vision into innovative and impactful solutions.",
+      "btnEmail": "Email Me Now",
+      "btnPortfolio": "View Full Portfolio"
+    }
+  }
+}
