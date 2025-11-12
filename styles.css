@@ -118,6 +118,36 @@ body {
     gap: 1rem;
 }
 
+.lang-toggle {
+    background: var(--gray-light);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.lang-toggle:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.lang-icon {
+    display: block;
+    transition: transform 0.3s;
+}
+
+.lang-toggle:hover .lang-icon {
+    transform: scale(1.1);
+}
+
 .theme-toggle {
     background: var(--gray-light);
     border: 1px solid var(--border-color);
