@@ -205,10 +205,10 @@ if (themeToggle) {
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = getTheme();
     setTheme(savedTheme);
-    
-    // Load translations
-    loadTranslations();
 });
+
+// Load translations immediately (don't wait for DOMContentLoaded)
+loadTranslations();
 
 // === Dynamic Download CV ===
 const downloadCV = document.getElementById('downloadCV');
